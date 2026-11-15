@@ -1,12 +1,17 @@
 name: Publicar episódio
 
+# Dispara quando a skill grava episodes/<tag>.json em main com {"title": ..., "description": ...}.
+# Publica o release (sai do rascunho), registra o episódio e regera o feed.
+
 on:
-  release:
-    types: [published]
+  push:
+    branches: [main]
+    paths: ["episodes/*.json", "podcast.json", "scripts/build_feed.py"]
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: feed
@@ -21,15 +26,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install mutagen
-      - name: Registrar episódio
-        if: github.event_name == 'release'
+      - name: Publicar releases e registrar episódios
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_JSON: ${{ toJson(github.event.release) }}
-          TAG: ${{ github.event.release.tag_name }}
-        run: |
-          gh release download "$TAG" --pattern '*.mp3' --dir /tmp/ep
-          python scripts/add_episode.py "$TAG" /tmp/ep/*.mp3
+          GH_REPO: ${{ github.repository }}
+        run: python scripts/publish_episodes.py
       - name: Gerar feed
         run: python scripts/build_feed.py
       - name: Commit
@@ -37,5 +38,10 @@ jobs:
           git config user.name "evangelho-bot"
           git config user.email "actions@users.noreply.github.com"
           git add episodes.json docs
-          git diff --cached --quiet || git commit -m "feed: ${{ github.event.release.tag_name || 'rebuild' }}"
+          git diff --cached --quiet || git commit -m "feed: atualizado"
+          git pull --rebase
           git push
+      - name: Disparar busca do link no Spotify
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run spotify-link.yml || true

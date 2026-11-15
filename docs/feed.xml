@@ -10,7 +10,7 @@
     <itunes:author>Família Dias</itunes:author>
     <itunes:owner>
       <itunes:name>Família Dias</itunes:name>
-      <itunes:email>PREENCHER@exemplo.com</itunes:email>
+      <itunes:email>gemdias@hotmail.com</itunes:email>
     </itunes:owner>
     <itunes:image href="https://engelmannlabs.github.io/evangelho-dos-dias/capa.jpg"/>
     <image><url>https://engelmannlabs.github.io/evangelho-dos-dias/capa.jpg</url><title>Evangelho dos Dias</title><link>https://engelmannlabs.github.io/evangelho-dos-dias/</link></image>
@@ -19,7 +19,7 @@
     </itunes:category>
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
-    <lastBuildDate>Sun, 15 Nov 2026 12:58:05 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 12:59:04 +0000</lastBuildDate>
 
   </channel>
 </rss>
