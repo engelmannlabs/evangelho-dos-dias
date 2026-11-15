@@ -19,7 +19,27 @@
     </itunes:category>
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
-    <lastBuildDate>Sun, 15 Nov 2026 13:05:19 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 13:11:40 +0000</lastBuildDate>
+    <item>
+      <title>Missão dos espíritas — Os trabalhadores da última hora (Cap. XX)</title>
+      <description><![CDATA[No nosso primeiro episódio, Flá e Gui leem o item "Missão dos espíritas", do capítulo XX de O Evangelho Segundo o Espiritismo, "Os trabalhadores da última hora". Por uma bela coincidência, a leitura do dia convida a "ir e pregar" justamente na manhã em que decidimos começar a gravar nossas reflexões.
 
+Conversamos sobre a solidariedade dos que vieram antes de nós, sobre semear sem controlar o resultado, sempre com respeito ao tempo e às crenças de cada um, e sobre a ideia de que o conhecimento só ganha sentido quando vira ação no dia a dia.
+
+Encerramos com a prece do Pai Nosso.]]></description>
+      <itunes:summary><![CDATA[No nosso primeiro episódio, Flá e Gui leem o item "Missão dos espíritas", do capítulo XX de O Evangelho Segundo o Espiritismo, "Os trabalhadores da última hora". Por uma bela coincidência, a leitura do dia convida a "ir e pregar" justamente na manhã em que decidimos começar a gravar nossas reflexões.
+
+Conversamos sobre a solidariedade dos que vieram antes de nós, sobre semear sem controlar o resultado, sempre com respeito ao tempo e às crenças de cada um, e sobre a ideia de que o conhecimento só ganha sentido quando vira ação no dia a dia.
+
+Encerramos com a prece do Pai Nosso.]]></itunes:summary>
+      <enclosure url="https://engelmannlabs.github.io/evangelho-dos-dias/audio/ep-001.mp3" length="6617899" type="audio/mpeg"/>
+      <guid isPermaLink="false">engelmannlabs/evangelho-dos-dias/ep-001</guid>
+      <pubDate>Sun, 15 Nov 2026 13:11:40 +0000</pubDate>
+      <itunes:duration>00:13:47</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://engelmannlabs.github.io/evangelho-dos-dias/capa.jpg"/>
+    </item>
   </channel>
 </rss>
