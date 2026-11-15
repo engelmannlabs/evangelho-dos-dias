@@ -1,0 +1,41 @@
+name: Publicar episódio
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: feed
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install mutagen
+      - name: Registrar episódio
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_JSON: ${{ toJson(github.event.release) }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          gh release download "$TAG" --pattern '*.mp3' --dir /tmp/ep
+          python scripts/add_episode.py "$TAG" /tmp/ep/*.mp3
+      - name: Gerar feed
+        run: python scripts/build_feed.py
+      - name: Commit
+        run: |
+          git config user.name "evangelho-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add episodes.json docs
+          git diff --cached --quiet || git commit -m "feed: ${{ github.event.release.tag_name || 'rebuild' }}"
+          git push

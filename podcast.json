@@ -1,0 +1,15 @@
+{
+  "title": "Evangelho dos Dias",
+  "author": "Família Dias",
+  "description": "Bem-vindos ao Evangelho dos Dias! Aqui, Flá e Gui irão ler um trecho do livro O Evangelho Segundo o Espiritismo e compartilhar uma reflexão sobre esta leitura.",
+  "language": "pt-br",
+  "category": "Religion & Spirituality",
+  "subcategory": "Spirituality",
+  "explicit": false,
+  "owner_name": "Família Dias",
+  "owner_email": "PREENCHER@exemplo.com",
+  "site": "https://engelmannlabs.github.io/evangelho-dos-dias/",
+  "feed_url": "https://engelmannlabs.github.io/evangelho-dos-dias/feed.xml",
+  "image": "https://engelmannlabs.github.io/evangelho-dos-dias/capa.jpg",
+  "repo": "engelmannlabs/evangelho-dos-dias"
+}
