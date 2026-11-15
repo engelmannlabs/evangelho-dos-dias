@@ -43,7 +43,7 @@ jobs:
             n=$((10#${tag#ep-}))
             gh release create "$tag" "$f" --draft --title "Episódio $n" --notes "Aguardando título e descrição." --target main
           fi
-      - run: pip install faster-whisper==1.1.1
+      - run: pip install faster-whisper requests
       - name: Transcrever
         env:
           AUDIO: ${{ steps.rel.outputs.file }}
