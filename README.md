@@ -1,16 +1,13 @@
 # Evangelho dos Dias
 
-Feed RSS e publicação automatizada do podcast **Evangelho dos Dias** (Família Dias).
+Feed RSS do podcast **Evangelho dos Dias** (Família Dias), servido pelo GitHub Pages.
 
 - Feed: https://engelmannlabs.github.io/evangelho-dos-dias/feed.xml
 - Página: https://engelmannlabs.github.io/evangelho-dos-dias/
 
-## Fluxo
+## Fluxo (operado pelo Claude)
 
-1. O MP3 editado é enviado ao branch `inbox` como `inbox/ep-NNN.mp3` (commit único, force-push).
-2. `inbox.yml` cria o release `ep-NNN` em rascunho com o MP3 e grava `transcripts/ep-NNN.txt` em `main`.
-3. Título e descrição entram em `episodes/ep-NNN.json` (`{"title", "description"}`) em `main`.
-4. `publish.yml` publica o release, atualiza `episodes.json` e regera `docs/feed.xml`.
-5. `spotify-link.yml` (a cada 30 min) encontra o episódio no Spotify e grava o link em `episodes.json` e no release.
-
-Secrets: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`. Variável opcional: `SPOTIFY_SHOW_ID`.
+1. O áudio editado (sem silêncios, 1,2x, MP3 64 kbps mono) é enviado em `audio/ep-NNN.mp3`.
+2. `transcribe.yml` grava `transcripts/ep-NNN.txt` (único passo no GitHub Actions).
+3. O Claude escreve título e descrição e roda `python3 scripts/add_episode.py --number N --title ... --description ...`, que atualiza `episodes.json`, `feed.xml` e `index.html`.
+4. O link do Spotify é gravado com `--spotify-url` quando o episódio aparece lá.

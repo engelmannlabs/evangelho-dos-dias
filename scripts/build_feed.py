@@ -66,7 +66,7 @@ feed = f"""<?xml version="1.0" encoding="UTF-8"?>
   </channel>
 </rss>
 """
-(ROOT / "docs" / "feed.xml").write_text(feed, encoding="utf-8")
+(ROOT / "feed.xml").write_text(feed, encoding="utf-8")
 
 rows = "".join(
     f"<li><strong>#{e['number']} — {html.escape(e['title'])}</strong>"
@@ -81,5 +81,5 @@ page = f"""<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta n
 <body><img src="capa.jpg" alt="Capa"><h1>{html.escape(show['title'])}</h1><p>{html.escape(show['description'])}</p>
 <p><a href="feed.xml">Feed RSS</a></p><ul>{rows}</ul></body></html>
 """
-(ROOT / "docs" / "index.html").write_text(page, encoding="utf-8")
+(ROOT / "index.html").write_text(page, encoding="utf-8")
 print(f"feed gerado com {len(episodes)} episódio(s)")
